@@ -1,0 +1,376 @@
+:root{
+  --button_hover : #555;
+  --text: #02010b;
+  --background: #f9f8fe;
+  --primary: #5412ed;
+  --secondary: #f5788a;
+  --accent: #f2ac4c;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+body{
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "OpenSans";
+}
+.clickable{
+  cursor: pointer;
+}
+.row{
+  display: flex;
+}
+.spread{
+  display: flex;
+  justify-content: space-between;
+}
+.contentDiv{
+  padding: 3em;
+}
+.centeredDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.monad{
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+.bigTitle{
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+}
+.clickableLabel{
+  cursor: pointer;
+  color: var(--primary) ;
+}
+/*Index page*/
+.IndexWelcomeLabel{
+  margin-bottom: 2em;
+}
+/*Navbar*/
+.NavBarMainDiv{
+  display: flex;
+  height: 2em;
+  justify-content: space-evenly;
+}
+.NavBar-SearchDiv{
+  display: flex;
+  align-items: center;
+}
+.NavBarButton{
+  border: none;
+  flex-grow: 1;
+  margin: 0 0.25em;
+}
+.NavBarButton:hover{
+  background-color: var(--button_hover);
+}
+
+/*Featured reveiw*/
+.FeaturedReview-MainDiv{
+  display: flex
+}
+
+.FeaturedReview-MainDiv img{
+  max-width: 150px;
+  max-height: 150px;
+}
+.FeaturedReview-RightDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+/*ArtistPage*/
+.ArtistPage{
+  display: flex;
+  flex-direction: column;
+}
+.ArtistPage-TopDiv{
+  display: flex;
+  flex-direction: row;
+}
+.ArtistPage-TopDiv img{
+  margin: 1em;
+  max-height: 400px;
+  max-width: 400px;
+}
+.ArtistPage-RightTopDiv{
+  margin-left: 5px;
+}
+.ArtistPage-DivForGenres{
+  display: flex;
+  flex-direction: row;
+}
+.ArtistPage-BottomDiv {
+  margin-top: 5px ;
+  padding: 0px 2em;
+}
+.ArtistPage-BottomDiv img{
+  max-width: 50px;
+  max-height: 50px;
+}
+.AlbumCard{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  margin-top: 5px;
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+.AlbumCard img{
+  max-width: 4em;
+  max-height: 4em;
+  margin: 1em 1em;
+}
+/*Album page*/
+.AlbumPage{
+  display: flex;
+  flex-direction: column;
+}
+.AlbumPage-CenterDiv
+{
+  display: flex;
+  flex-direction: row;
+}
+.AlbumPage-DiscussionDiv
+{
+  height: 300px;
+  width: 200px;
+  display:flex;
+  flex-direction: column;
+}
+.AlbumPage-DiscussionDivFeild
+{
+
+  overflow-y: scroll;
+  background-color: gray;
+  border: 1px solid black;
+}
+.AlbumPage-MessageDiv
+{
+  display: flex;
+  flex-direction: column;
+  
+}
+.AlbumPage-InputDiv{
+  background-color: white;
+  border-radius: 5px;
+  width: 40vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.AlbumPage-InputDiv-ButtonsDiv{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25%;
+}
+/*Genre page*/
+.GenrePage-GenreDiv{
+  display: flex;
+  flex-direction: row;
+}
+.GenrePage-GenreDiv img{
+  max-width: 20em;
+  max-height: 20em;
+  margin-bottom: 2em;
+  margin-right: 1em;
+}
+
+.GenrePage-InfoDiv{
+  display: flex;
+  flex-direction: column;
+}
+.Genre{
+  display: flex;
+  flex-direction: column;
+}
+.Genre-Info{
+  display: flex;
+  flex-direction: row;
+}
+.Genre-Info img{
+  max-width: 25em;
+  max-height: 25em;
+  margin-top: 1em;
+}
+.Genre-InfoOfGenre{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 1em;
+  margin-top: 1em;
+}
+.Genre-Description{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+}
+.Genre-BestRatedDiv{
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top:1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Genre-BestAlbums{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  flex-wrap: wrap;
+}
+.Genre-BestAlbums img{
+  max-width: 15em;
+  max-height: 15em;
+  margin: 2em 2em;
+}
+/*Profile page*/
+.ProfilePage{
+  display: flex;
+  flex-direction: column;
+}
+.ProfilePage-FavoriteAlbums{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.favAlbums{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ProfilePage-FavAlbumDiv img{
+  max-width: 10em;
+  max-height: 10em;
+  margin: 2em;
+}
+.ProfilePage-RecentRatings{
+  display: flex;
+  flex-direction: column;
+}
+.ProfilePage-RatingDiv{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  margin: 1em 0em;
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+.ProfilePage-RatingDiv img{
+  height: 5em;
+  width: 5em;
+}
+.ProfilePage-UsersLists{
+  display: flex;
+  flex-direction: column;
+}
+.ProfilePage-ListCardDiv{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30px;
+}
+.ProfilePage-ListCardDiv img{
+  width: 4em;
+  height: 4em;
+  margin-right: 10px;
+}
+.NewList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.NewListRow{
+  display: flex;
+  flex-direction: row;
+}
+/*Search*/
+.Search-Entry{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1em 1em;
+  margin-top: 1em;
+}
+.Search-Entry img{
+  max-height: 8em;
+  max-width: 8em;
+}
+.Search-Entry-Info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2em;
+}
+/*List page*/
+.ListPage-TopDiv
+{
+  display: flex;
+  flex-direction: row;
+}
+.ListPage-LeftTopDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.ListPage-LeftTopDiv img{
+  width: 10em;
+  height: 10em;
+}
+.ListPage-RightTopDiv{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.ListPage-ListItemDiv{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/*Buttons*/
+.smallBtn{
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+.bigBtn{
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+}
+.purpleBtn{
+  background-color: #5412ed;
+  color: var(--background);
+}
+.purpleBtn:hover{
+  background-color: #3e0cb3;
+  color: var(--background);
+  cursor: pointer;
+}
