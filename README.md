@@ -9,10 +9,10 @@ Za pokretanje aplikacije neophodno je:
 Pokretanje:
 - Pokrenuti komandu u API folderu "dotnet watch run", za pokretanje API-a. Prilikom prvog pokretanja preuzeće se neophodne zavisnosti.  
 - Na adresi localhost:5275 iskrostiti endpoint-ove: 
-  -Register (Za kreiranje korisnika)
-  -AddGenre (Dodavanje žanra)
-  -AddArtist (Dodavanje izvođača)
-  -AddAlbum (Dodavanje albuma)
-  -AddFeatureReview (Nakon što krisinik doda recenziju za neki album, može se postaviti na početnu stranu aplikacije)
+  - Register (Za kreiranje korisnika)
+  - AddGenre (Dodavanje žanra)
+  - AddArtist (Dodavanje izvođača)
+  - AddAlbum (Dodavanje albuma)
+  - AddFeatureReview (Nakon što krisinik doda recenziju za neki album, može se postaviti na početnu stranu aplikacije)
 - Pokrenuti live server.
 
