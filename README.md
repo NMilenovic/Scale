@@ -8,7 +8,7 @@ Za pokretanje aplikacije neophodno je:
 
 Pokretanje:
 - Pokrenuti komandu u API folderu "dotnet watch run", za pokretanje API-a. Prilikom prvog pokretanja preuzeće se neophodne zavisnosti.  
-- Na adresi localhost:5275 iskrostiti endpoint-ove: 
+- Na adresi localhost:5272 iskrostiti endpoint-ove: 
   - Register (Za kreiranje korisnika)
   - AddGenre (Dodavanje žanra)
   - AddArtist (Dodavanje izvođača)
