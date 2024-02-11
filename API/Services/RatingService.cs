@@ -84,7 +84,9 @@ namespace Services
       }
       else
       {
-        
+        var pullFirstRecentRating = Builders<User>.Update.Pull(r => r.RecentRatings,user.RecentRatings.First());
+        userCollection.UpdateOne(userFilter,pullFirstRecentRating);
+        userCollection.UpdateOne(userFilter,recentRatingInsert);
       }
     }
 

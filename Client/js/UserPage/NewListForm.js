@@ -52,6 +52,7 @@ export class NewListForm
       this.host.appendChild(row);
       let createButton = document.createElement("button");
       createButton.innerHTML = "Create";
+      createButton.classList.add("smallBtn","purpleBtn");
       createButton.onclick = (ev) =>{
         var payload = {
           userId : this.user.id,

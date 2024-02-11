@@ -12,13 +12,27 @@ export class LoginPage{
     while(this.container.firstChild)
       this.container.removeChild(this.container.firstChild)
 
+    let div = document.createElement("div");
+    div.classList = "LoginDiv";
+    this.container.appendChild(div);
+
+    let formDiv = document.createElement("div");
+    formDiv.classList = "LoginDiv-Form";
+    div.appendChild(formDiv);
+
     let emailInput = document.createElement("input");
-    this.container.appendChild(emailInput);
+    emailInput.className = "bigInput";
+    emailInput.placeholder = "Your email";
+    formDiv.appendChild(emailInput);
     let passwordInput = document.createElement("input");
-    this.container.appendChild(passwordInput);
+    passwordInput.type = "password";
+    passwordInput.className = "bigInput";
+    passwordInput.placeholder = "Your password";
+    formDiv.appendChild(passwordInput);
 
     let loginButton = document.createElement("button");
     loginButton.innerHTML = "Login";
+    loginButton.classList.add("bigestBtn","purpleBtn");
     loginButton.onclick = (ev) =>{
       fetch("http://localhost:5272/Login/Login/"+emailInput.value+"/"+passwordInput.value)
       .then(p =>{
@@ -29,6 +43,6 @@ export class LoginPage{
         });
       });
     }
-    this.container.appendChild(loginButton);
+    formDiv.appendChild(loginButton);
   }
 }

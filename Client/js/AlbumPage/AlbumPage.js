@@ -55,6 +55,10 @@ export class AlbumPage{
     leftDiv.appendChild(i);
 
 
+    let title = document.createElement("label");
+    title.innerHTML = "Tracklist"
+    title.className = "title";
+    leftDiv.appendChild(title);
 
     let table  = document.createElement("table");
     leftDiv.appendChild(table);
@@ -112,6 +116,8 @@ export class AlbumPage{
       }
      
       let addToListBtn = document.createElement("button");
+      addToListBtn.classList.add("smallBtn");
+      addToListBtn.classList.add("purpleBtn")
       addToListBtn.innerHTML = "Add to list";
       h3.appendChild(addToListBtn);
       addToListBtn.onclick = async (ev) =>{
@@ -143,7 +149,11 @@ export class AlbumPage{
     th.innerHTML = "Relese date";
     tr.appendChild(th);
     td = document.createElement("td");
-    td.innerHTML = this.album.releaseDate;
+    const date = new Date(this.album.releaseDate);
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1; 
+    const year = date.getUTCFullYear();
+    td.innerHTML = day+"."+month+"."+year+".";
     tr.appendChild(td);
     tbody.appendChild(tr);
 
@@ -207,6 +217,7 @@ export class AlbumPage{
       {
         let l = document.createElement("label");
         let modifyBtn = document.createElement("button");
+        modifyBtn.classList.add("smallBtn","purpleBtn");
         let ratingId;
         response.json().then(rating =>{
           l.innerHTML = rating.grade;
@@ -214,6 +225,7 @@ export class AlbumPage{
           ratingDiv.appendChild(l); 
         });
         modifyBtn.innerHTML = "Delete grade";
+        
         modifyBtn.onclick = async(ev) =>
         {
           await fetch("http://localhost:5272/Rating/DeleteRating/"+ratingId,{
@@ -229,6 +241,7 @@ export class AlbumPage{
       else if(response.status == 400 )
       {
         let rateAlbumBtn = document.createElement("button");
+        rateAlbumBtn.classList.add("smallBtn","purpleBtn");
         rateAlbumBtn.innerHTML = "Rate album";
         
         rateAlbumBtn.onclick = async (ev) =>{
@@ -264,6 +277,7 @@ export class AlbumPage{
     {
       let createReviewButton = document.createElement("button");
       createReviewButton.textContent = "Create Review";
+      createReviewButton.classList.add("smallBtn","purpleBtn","createReviewBtn")
       createReviewButton.onclick = async () => {
         if (reviewInputDiv.contains(createReviewButton)) {
           reviewInputDiv.removeChild(createReviewButton);
@@ -274,6 +288,7 @@ export class AlbumPage{
 
         let okButton = document.createElement("button");
         okButton.textContent = "OK";
+        okButton.classList.add("smallBtn","purpleBtn");
         okButton.onclick = async (ev) => {
             let reviewContent = textarea.value;
 
@@ -296,19 +311,23 @@ export class AlbumPage{
             }
         };
 
-        // Append the OK button to the reviewInputDiv
+        
         reviewInputDiv.appendChild(okButton);
     };
 
-    // Append the createReviewButton to the reviewInputDiv
+
     reviewInputDiv.appendChild(createReviewButton)
     }
     }
 
   let latestReviewsDiv = document.createElement("div");
+  latestReviewsDiv.className = "AlbumPage-LetestReviews";
   rightDiv.appendChild(latestReviewsDiv);
   if(this.album.latestReviews != null)
   {
+    let l = document.createElement("h4");
+    l.innerHTML = "Latest reviews";
+    latestReviewsDiv.appendChild(l);
     this.album.latestReviews.forEach(review =>{
       let r = new LatestReview(latestReviewsDiv,review);
       r.Draw();
@@ -360,6 +379,8 @@ export class AlbumPage{
 
     let modifyButton = document.createElement("button");
     modifyButton.innerHTML = "Modify review";
+    modifyButton.classList.add("smallBtn","purpleBtn");
+    
     modifyButton.onclick = (ev) => {
         modifyButton.style.display = "none"
         let textarea = document.createElement("textarea");
@@ -368,6 +389,8 @@ export class AlbumPage{
     
         let okButton = document.createElement("button");
         okButton.textContent = "OK";
+        okButton.classList.add("smallBtn","purpleBtn");
+        
         let review = this.review;
         okButton.onclick = async function () {
             modifyButton.style.display = "block";
@@ -385,6 +408,7 @@ export class AlbumPage{
         reviewInputDiv.appendChild(okButton);
         let deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete review";
+        okButton.classList.add("smallBtn","purpleBtn");
         let c = this.container;
         let a = this.albumId;
         let cu = this.user;
@@ -406,6 +430,10 @@ export class AlbumPage{
     host.appendChild(disscussionDiv);
     disscussionDiv.classList.add("AlbumPage-DiscussionDiv");
 
+    let title = document.createElement("label");
+    title.className = "title"
+    title.innerHTML = "Disscussion"
+    disscussionDiv.appendChild(title);  
     let discussionDivFeild = document.createElement("div");
     discussionDivFeild.classList.add("AlbumPage-DiscussionDivFeild");
     disscussionDiv.appendChild(discussionDivFeild);
@@ -472,7 +500,7 @@ export class AlbumPage{
     console.log(this.user)
     
     let row = document.createElement("div");
-    row.className = "spread";
+    row.classList.add("spread","padded")
     inputDiv.appendChild(row);
     l = document.createElement("label");
     l.innerHTML = "Chose list: ";
@@ -491,7 +519,7 @@ export class AlbumPage{
     row.appendChild(select);
 
     row = document.createElement("div");
-    row.className = "spread";
+    row.classList.add("spread","padded");
     inputDiv.appendChild(row);
     l = document.createElement("label");
     l.innerHTML = "Description: ";
@@ -506,6 +534,7 @@ export class AlbumPage{
 
     let cancelBtn = document.createElement("button");
     cancelBtn.innerHTML = "Cancel";
+    cancelBtn.classList.add("smallBtn","purpleBtn");
     cancelBtn.onclick = (ev) =>{
       let ap = new AlbumPage(this.container,this.albumId,this.user);
       ap.Draw();
@@ -514,7 +543,13 @@ export class AlbumPage{
 
     let addBtn = document.createElement("button");
     addBtn.innerHTML = "Add";
+    addBtn.classList.add("smallBtn","purpleBtn");
     addBtn.onclick = async (ev) =>{
+      if(textarea.value == "")
+      {
+        alert("Please insert list description!");
+        return;
+      }
       let res = await fetch("http://localhost:5272/List/AddAlbumToList/"+select.value+"/"+this.albumId+"/"+textarea.value,{
         method:"PUT",
         headers: {"Content-type":"Application/json"}

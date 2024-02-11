@@ -9,6 +9,8 @@ export class LatestReview
   Draw()
   {
     let divForReview = document.createElement("div");
+    divForReview.className = "divForReview";
+    console.log(this.review);
     this.container.appendChild(divForReview);
 
     let label = document.createElement("label");

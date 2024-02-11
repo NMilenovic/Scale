@@ -104,13 +104,16 @@ export class ProfilePage{
     host.appendChild(title);
 
     let label = document.createElement("label");
-    label.innerHTML = this.user.username+" recent ratings";
+    label.innerHTML = this.user.username+" recent ratings:";
     title.appendChild(label);
     if(this.user.recentRatings[0] == null)
     {
+      let centerDiv = document.createElement("div");
+      centerDiv.className = "centeredDiv";
+      host.appendChild(centerDiv);
       let label = document.createElement("label");
       label.innerHTML = "User didnt rate any album";
-      host.appendChild(label);
+      centerDiv.appendChild(label);
     }
     else
     {
@@ -176,7 +179,7 @@ export class ProfilePage{
     if(this.userId === this.currentUser.id)
     {
       let buttonDiv = document.createElement("div")
-      buttonDiv.className = "centeredDiv";
+      buttonDiv.classList.add("centeredDiv","ProfilePageCreateList")
       host.appendChild(buttonDiv);
   
       let addListBtn = document.createElement("button");
@@ -193,9 +196,12 @@ export class ProfilePage{
     }
     if(this.user.listCards[0] == null)
     {
+      let centerDiv = document.createElement("div");
+      centerDiv.className = "centeredDiv";
+      host.appendChild(centerDiv);
       let label = document.createElement("label");
       label.innerHTML = "User currently dont have any list ";
-      host.appendChild(label);
+      centerDiv.appendChild(label);
     }
     else
     {

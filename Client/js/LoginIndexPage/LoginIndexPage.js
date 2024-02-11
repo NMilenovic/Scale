@@ -11,14 +11,18 @@ export class LoginIndexPage{
     while(this.container.firstChild)
       this.container.removeChild(this.container.firstChild)
 
+    let indexDiv = document.createElement("div");
+    indexDiv.className = "LoginIndex";
+    this.container.appendChild(indexDiv);
     let loginButton = document.createElement("button");
+    loginButton.classList.add("bigestBtn","purpleBtn");
     loginButton.innerHTML = "Login";
     loginButton.onclick = (ev) =>{
       var lp = new LoginPage(this.container);
       lp.Draw();
     }
 
-    this.container.appendChild(loginButton);
+    indexDiv.appendChild(loginButton);
 
   }
 }

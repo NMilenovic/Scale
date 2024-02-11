@@ -15,9 +15,7 @@ export class AlbumCard{
     div.className = "AlbumCard";
     this.container.appendChild(div);
 
-    //slika
-    //title
-    //releseday
+
 
     let img = document.createElement("img");
     img.src = this.album.imageURL;
@@ -30,11 +28,17 @@ export class AlbumCard{
       var albumPage = new AlbumPage(this.page,this.album.albumId,this.currentUser);
       albumPage.Draw();
     };
-    //Fix datum
+
     div.appendChild(title);
-    var releseDate = new Date(this.album.releseDate);
+
+    const date = new Date(this.album.releseDate);
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1; 
+    const year = date.getUTCFullYear();
+
+
     let releseDateLabel = document.createElement("label");
-    releseDateLabel.innerHTML = releseDate.getDay()+"."+releseDate.getMonth()+"."+releseDate.getFullYear()+".";
+    releseDateLabel.innerHTML = day+"."+month+"."+year+".";
     div.appendChild(releseDateLabel);
   }
 

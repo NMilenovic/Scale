@@ -1,5 +1,5 @@
 :root{
-  --button_hover : #555;
+  --button_hover : #673fc4;
   --text: #02010b;
   --background: #f9f8fe;
   --primary: #5412ed;
@@ -15,6 +15,10 @@ body{
   color: var(--text);
   font-family: "OpenSans";
 }
+.padded{
+  padding-left: 1em;
+  padding-right: 1em;
+}
 .clickable{
   cursor: pointer;
 }
@@ -26,7 +30,8 @@ body{
   justify-content: space-between;
 }
 .contentDiv{
-  padding: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 .centeredDiv{
   display: flex;
@@ -59,32 +64,51 @@ body{
   cursor: pointer;
   color: var(--primary) ;
 }
-/*Index page*/
-.IndexWelcomeLabel{
-  margin-bottom: 2em;
-}
 /*Navbar*/
 .NavBarMainDiv{
   display: flex;
-  height: 2em;
   justify-content: space-evenly;
+  align-items: baseline;
+  margin-bottom: 1em;
+  background-color: var(--primary);
 }
 .NavBar-SearchDiv{
   display: flex;
-  align-items: center;
 }
 .NavBarButton{
   border: none;
+  width: 3em;
+  height: 3em;
+  background-color: var(--primary);
   flex-grow: 1;
-  margin: 0 0.25em;
+  cursor: pointer;
 }
 .NavBarButton:hover{
   background-color: var(--button_hover);
 }
-
+.NavBar-SearchDiv{
+  display: flex;
+  flex-grow: 2;
+}
+.NavBar-SearchDiv input{
+  border-radius: 20px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid black;
+  flex-grow: 2;
+}
+.NavBar-SearchDiv button{
+  border: none;
+  flex-grow: 0;
+}
+/*Index*/
+.IndexWelcomeLabel{
+  padding : 2em;
+}
 /*Featured reveiw*/
 .FeaturedReview-MainDiv{
-  display: flex
+  display: flex;
+  padding-top: 2em;
 }
 
 .FeaturedReview-MainDiv img{
@@ -94,6 +118,7 @@ body{
 .FeaturedReview-RightDiv{
   display: flex;
   flex-direction: column;
+  margin-left: 1em;
 }
 
 /*ArtistPage*/
@@ -150,18 +175,35 @@ body{
   display: flex;
   flex-direction: row;
 }
+.AlbumPage-LeftDiv img{
+  max-width: 450px;
+  max-height: 450px;
+}
+.AlbumPage-LeftDiv table{
+  margin-top: 1em;
+  width: 100%;
+}
+.AlbumPage-RightDiv{
+  margin-left: 1em;
+}
+.AlbumPage-RightDiv h5{
+  margin-bottom: 0px;
+}
+.AlbumPage-DivForGenres{
+  margin-bottom: 1em;
+}
 .AlbumPage-DiscussionDiv
 {
   height: 300px;
-  width: 200px;
+  width: 100%;
+  margin-top: 1em;
   display:flex;
   flex-direction: column;
 }
 .AlbumPage-DiscussionDivFeild
 {
-
   overflow-y: scroll;
-  background-color: gray;
+  background-color: #e5e1ee ;
   border: 1px solid black;
 }
 .AlbumPage-MessageDiv
@@ -171,17 +213,25 @@ body{
   
 }
 .AlbumPage-InputDiv{
-  background-color: white;
+  background-color: #e5e1ee;
   border-radius: 5px;
   width: 40vw;
   height: 80vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid var(--primary);
 }
 .AlbumPage-InputDiv-ButtonsDiv{
   display: flex;
   justify-content: space-between;
   padding: 0 25%;
+}
+.divForReview{
+  background-color: #e5e1ee;
+  padding: 2em;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
 }
 /*Genre page*/
 .GenrePage-GenreDiv{
@@ -284,7 +334,14 @@ body{
   height: 5em;
   width: 5em;
 }
+.Rating{
+  margin-left: 2px;
+}
+.createReviewBtn{
+  margin-top: 2px;
+}
 .ProfilePage-UsersLists{
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
 }
@@ -294,20 +351,29 @@ body{
   justify-content: flex-start;
   align-items: center;
   font-size: 30px;
+  border: 2px solid var(--primary);
+  background-color: #e5e1ee;
+  border-radius: 10px;
+  padding: 1em;
 }
 .ProfilePage-ListCardDiv img{
   width: 4em;
   height: 4em;
   margin-right: 10px;
 }
+.ProfilePageCreateList > button{
+  margin-bottom: 1em;
+}
 .NewList{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 50%;
 }
 .NewListRow{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 1em;
 }
 /*Search*/
 .Search-Entry{
@@ -353,6 +419,19 @@ body{
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: 1px solid black;
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: 10px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.ListEntry{
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
 }
 /*Buttons*/
 .smallBtn{
@@ -365,6 +444,11 @@ body{
   border: none;
   border-radius: 5px;
 }
+.bigestBtn{
+  padding: 10px 500px;
+  border: none;
+  border-radius: 5px;
+}
 .purpleBtn{
   background-color: #5412ed;
   color: var(--background);
@@ -373,4 +457,42 @@ body{
   background-color: #3e0cb3;
   color: var(--background);
   cursor: pointer;
+}
+.LoginIndex{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.LoginDiv{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.LoginDiv-Form{
+  display: flex;
+  flex-direction: column;
+}
+.bigInput{
+  padding: 1em 20em;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-bottom: 1em;
+}
+.bigInput:focus{
+  border: 2px solid var(--primary);
+}
+.AllRatings-Rating{
+  background-color: var(--accent);
+  padding: 1em;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+}
+.AllRatings-Rating img{
+  width: 5em;
+  height: 5em;
 }

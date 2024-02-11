@@ -29,6 +29,7 @@ export class AllRatingsPage{
     let ratingDiv;
     results.forEach(result =>{
       ratingDiv = document.createElement("div");
+      ratingDiv.classList.add("AllRatings-Rating")
       contentDiv.appendChild(ratingDiv);
       let rating = new Rating(result);
 
@@ -41,6 +42,7 @@ export class AllRatingsPage{
       ratingDiv.append(l);
 
       l = document.createElement("label");
+      console.log(rating)
       l.innerHTML = rating.albumTitle;
       l.classList.add("clickableLabel");
       l.onclick = (ev) =>{

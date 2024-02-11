@@ -18,16 +18,14 @@ export class NavBar{
 
     this.container.appendChild(div);
     let button = document.createElement("button");
-    button.className = "NavBarButton";
-    button.innerHTML = "Home";
+    button.classList.add("NavBarButton","fa-solid","fa-house")
     button.onclick = (ev) =>{
       var indexPage = new IndexPage(this.container,this.user);
       indexPage.Draw();
     }
     div.appendChild(button);
     button = document.createElement("button");
-    button.className = "NavBarButton";
-    button.innerHTML = "Genres";
+    button.classList.add("NavBarButton","fa-solid","fa-music");
     button.onclick = (ev) =>{
       var genrePage = new GenrePage(this.container,this.user);
       genrePage.Draw();
@@ -65,7 +63,7 @@ export class NavBar{
     select.appendChild(op);
 
     let serachButton = document.createElement("button");
-    serachButton.innerHTML = "Search";
+    serachButton.classList.add("NavBarButton","fa-solid","fa-magnifying-glass");
     serachButton.onclick = (ev) =>{
       if(searchInput.value.length <=2)
       {
@@ -78,10 +76,9 @@ export class NavBar{
     serachDiv.appendChild(serachButton);
 
     button = document.createElement("button");
-    button.className = "NavBarButton";
+    button.classList.add("NavBarButton","fa-solid","fa-right-to-bracket");
     if(this.user == null)
     {
-      button.innerHTML = "Login";
       button.onclick = (ev)=>{
         var lip = new LoginIndexPage(this.container);
         lip.Draw();
@@ -89,9 +86,9 @@ export class NavBar{
     }
     else
     {
-      button.innerHTML = "Profile";
+      button.classList.remove("fa-right-to-bracket");
+      button.classList.add("fa-user");
       button.onclick = (ev) =>{
-        console.log(this.user);
         var pp = new ProfilePage(this.container,this.user,this.user.id);
         pp.Draw();
       }

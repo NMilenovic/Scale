@@ -97,6 +97,7 @@ export class ListPage{
       contentDiv.appendChild(listItemDiv);
       
       let div = document.createElement("div");
+      div.className = "ListEntry";
       listItemDiv.appendChild(div);
 
       let l = document.createElement("label");
@@ -124,6 +125,8 @@ export class ListPage{
       {
         let i = document.createElement("i");
         i.classList.add("fa-solid","fa-x","clickable");
+        let d = document.querySelector(".ListEntry");
+
         listItemDiv.appendChild(i);
 
         i.onclick = async (ev) =>{
